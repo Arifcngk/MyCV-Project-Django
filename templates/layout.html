@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+      {% include "includes/_head.html" with title="Home" %}
+	<body>
+		{% include "includes/_navbar.html" %}
+	<div id="colorlib-page">
+		{% include "includes/_header.html" %}
+	     {% block content %}
+		 
+
+		 {% endblock content %}
+           
+	    {% include "includes/_footer.html" %}
+	
+	</div>
+
+	{% load static %}
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/magnific-popup-options.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+	
+
+	</body>
+</html>
+
