@@ -40,7 +40,13 @@ class ImagesAdmin(admin.ModelAdmin):
     class Meta:
         model = Images        
 
+@admin.register(Projects)
+class ProjectsAdmin(admin.ModelAdmin):
+    list_display = ['title',"image","link", 'updated_date', 'created_date']
+    search_fields = ['title', 'description']
 
+    class Meta:
+        model = Projects
 
 
 @admin.register(Service)
@@ -52,8 +58,28 @@ class ServiceAdmin(admin.ModelAdmin):
         model = Service
 
 @admin.register(ServicesName)
-class ServicesAdmin(admin.ModelAdmin):
+class ServicesNameAdmin(admin.ModelAdmin):
+
     list_display = ('name',)
     search_fields = ('name',)    
     class Meta:
         model = ServicesName    
+
+
+@admin.register(Quotes) 
+class QuotesAdmin(admin.ModelAdmin):
+    list_display = ('quotes', 'quotationer')
+    search_fields = ('quotes', 'quotationer')
+    class Meta:
+        model = Quotes       
+
+
+
+
+
+@admin.register(Document)
+class DocumantAdmin(admin.ModelAdmin):
+    list_display = ('slug', 'documant','link_text')
+    search_fields = ('slug', 'documant')
+    class Meta:
+        model = Document        

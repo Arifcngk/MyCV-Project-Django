@@ -190,42 +190,29 @@
 			</div>
 			<div class="row animate-box">
 				<div class="owl-carousel1">
+
+					{% for project in projects %}
 					<div class="item">
 						<div class="col-md-12">
 							<div class="article">
-								<a href="blog.html" class="blog-img">
-									<img class="img-responsive" src={% static "images/img-1.jpg" %} alt="html5 bootstrap by colorlib.com">
+								<a href="{{ project.link }}" class="blog-img">
+									<img class="img-responsive" src={{ project.image.url}} alt="html5 bootstrap by colorlib.com">
 									<div class="overlay"></div>
 									<div class="link">
 										<span class="read">Read more</h2>
 									</div>
 								</a>
 								<div class="desc">
-									<span class="meta">15, Feb 2018</span>
-									<h2><a href="blog.html">A Japanese Constellation</a></h2>
-									<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove</p>
+									<h2><a href="blog.html">{{project.title}}</a></h2>
+									<span class="meta">{{ project.created_date|date:"F Y" }}</span>
+
+									<p>{{ project.description|truncatechars:170 }}</p>
+
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="col-md-12">
-							<div class="article">
-								<a href="blog.html" class="blog-img">
-									<img class="img-responsive" src={% static "images/img-2.jpg" %}  alt="html5 bootstrap by colorlib.com">
-									<div class="overlay"></div>
-									<div class="link">
-										<span class="read">Read more</h2>
-									</div>
-								</a>
-								<div class="desc">
-									<span class="meta">15, Feb 2018</span>
-									<h2><a href="blog.html">A Japanese Constellation</a></h2>
-									<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove</p>
-								</div>
-							</div>
-						</div>
-					</div>
+					{% endfor %}
 					
 					</div>
 				</div>
@@ -253,36 +240,19 @@
 			</div>
 			<div class="row animate-box">
 				<div class="owl-carousel">
+					{% for quotess in quotes %}
 					<div class="item">
 						<div class="col-md-12 text-center">
 							<div class="testimony">
 								<blockquote>
-									<p>"A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-									<span>" &mdash; George Brooks</span>
+									<p>{{ quotess.quotes }}</p>
+									<span>" &mdash; {{ quotess.quotationer }} "</span>
 								</blockquote>
 							</div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="col-md-12 text-center">
-							<div class="testimony">
-								<blockquote>
-									<p>"Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-									<span>" &mdash; Daniel Foster</span>
-								</blockquote>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="col-md-12 text-center">
-							<div class="testimony">
-								<blockquote>
-									<p>"When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove</p>
-									<span>" &mdash; Liam Jenkins</span>
-								</blockquote>
-							</div>
-						</div>
-					</div>
+					{% endfor %}
+					
 				</div>
 			</div>
 		</div>
