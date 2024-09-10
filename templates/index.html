@@ -10,39 +10,50 @@
 				<h2 class="bold">About</h2>
 			</div>
 			<div class="row">
+
+
 				<div class="col-md-5 animate-box">
 					<div class="owl-carousel3">
-						<div class="item">
-							<img class="img-responsive about-img" src={% static "images/about.jpg" %} alt="html5 bootstrap template by colorlib.com">
-						</div>
-						<div class="item">
-							<img class="img-responsive about-img" src={% static "images/about-2.jpg" %} alt="html5 bootstrap template by colorlib.com">
-						</div>
+						{% for img_info in images %}
+							{% if img_info.name == "about" %}
+								<div class="item">
+									<img class="img-responsive about-img" src="{{ img_info.image.url }}" alt="Resim">
+								</div>
+							{% endif %}
+						{% endfor %}
 					</div>
 				</div>
+				
+				
+				
 				<div class="col-md-6 col-md-push-1 animate-box">
 					<div class="about-desc">
 						<div class="owl-carousel3">
-							<div class="item">
-								<h2><span>Arif Can</span><span>Gök</span></h2>
-							</div>
-							<div class="item">
-								<h2><span>I'm</span><span>A Mobile Dev.</span></h2>
-							</div>
+							{% for about_info in about %}
+								<div class="item">
+									<h2><span>{{ about_info.name }}</span><span>{{ about_info.surname }}</span></h2>
+								</div>
+								<div class="item">
+									<h2><span>I'm</span><span>{{ about_info.work_status }}</span></h2>
+								</div>
+							{% endfor %}
 						</div>
+						
+						{% for about_info in about  %}
 						<div class="desc">
 							<div class="rotate">
 								<h2 class="heading">About</h2>
 							</div>
-							<p>A small river named Duden <a href="#">flows by their place</a> and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
+							<p>{{about_info.description}}</p>
 							<p class="colorlib-social-icons">
-								<a href="#"><i class="icon-facebook4"></i></a>
-								<a href="#"><i class="icon-twitter3"></i></a>
-								<a href="#"><i class="icon-googleplus"></i></a>
-								<a href="#"><i class="icon-dribbble2"></i></a>
+								<a href="https://github.com/kullanici-adi" target="_blank"><i class="icon-github"></i></a>
+								<a href="https://linkedin.com/in/kullanici-adi" target="_blank"><i class="icon-linkedin"></i></a>
+								<a href="https://medium.com/@kullanici-adi" target="_blank"><i class="icon-instagram"></i></a>
+								
 							</p>
 							<p><a href="contact/" class="btn btn-primary btn-outline">Contact Me!</a></p>
 						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>
@@ -61,60 +72,30 @@
 				</div>
 			</div>
 			<div class="row">
-			  <div class="col-md-3 col-sm-6 text-center">
-				  <h2 class="progress-head">Graphic Design</h2>
-				<div class="progress blue">
-					<span class="progress-left">
-						<span class="progress-bar"></span>
-					</span>
-					<span class="progress-right">
-						<span class="progress-bar"></span>
-					</span>
-					<div class="progress-value">100%</div>
-				</div>
-			 </div>
-		 
+			  
+		      {% for skills in skill  %}
 			 <div class="col-md-3 col-sm-6 text-center">
-				 <h2 class="progress-head">Illustration</h2>
-				<div class="progress yellow">
+				 <h2 class="progress-head">{{skills.name}}</h2>
+				<div class="progress {{skills.proccess_color}}">
 					<span class="progress-left">
 						<span class="progress-bar"></span>
 					</span>
 					<span class="progress-right">
 						<span class="progress-bar"></span>
 					</span>
-					<div class="progress-value">85%</div>
+					<div class="progress-value">{{skills.percentage}}</div>
 				</div>
 			 </div>
+			 {% endfor %}
+			
 
-			 <div class="col-md-3 col-sm-6 text-center">
-				 <h2 class="progress-head">Front-End Development</h2>
-				<div class="progress pink">
-					<span class="progress-left">
-						<span class="progress-bar"></span>
-					</span>
-					<span class="progress-right">
-						<span class="progress-bar"></span>
-					</span>
-					<div class="progress-value">75%</div>
-				</div>
-			 </div>
+			 
 
-			 <div class="col-md-3 col-sm-6 text-center">
-				 <h2 class="progress-head">Web Marketing</h2>
-				<div class="progress green">
-					<span class="progress-left">
-						<span class="progress-bar"></span>
-					</span>
-					<span class="progress-right">
-						<span class="progress-bar"></span>
-					</span>
-					<div class="progress-value">80%</div>
-				</div>
-			 </div>
 		   </div>
 		</div>
 	</div>
+
+	
 
 	<div id="colorlib-services">
 		<div class="container">
@@ -179,7 +160,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="one-forth services-img" style="background-image: url('{% static "images/services-img-1.jpg" %}');"></div>
+						
+						<div class="one-forth services-img" style="background-image: url('{{ imageServices.image.url }}');"></div>
 						
 						</div>
 					</div>
