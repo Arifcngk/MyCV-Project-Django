@@ -1,3 +1,7 @@
 from django.contrib import admin
+from core.models import *
 
-# Register your models here.
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    class Meta:
+        model=About
